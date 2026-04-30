@@ -65,7 +65,7 @@ const RegisterPage = () => {
               Login
             </button>
             <p className="my-3 text-sm text-center">
-              I have an account?
+              I already have an account!
               <Link href="/login" className="text-blue-600">
                 {" "}
                 Login
