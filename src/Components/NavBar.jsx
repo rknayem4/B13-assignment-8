@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import NavLink from "./NavLink";
 import Image from "next/image";
 import Link from "next/link";
+import { authClient } from "@/app/lib/auth-client";
 
 const NavBar = () => {
   const link = (
@@ -17,6 +19,9 @@ const NavBar = () => {
       </li>
     </>
   );
+  const { data: session, isPending } = authClient.useSession();
+  const user = session?.user;
+  // console.log(user, isPending);
   return (
     <div className="bg-base-100 shadow-sm sticky top-0 z-30">
       <div className="navbar container mx-auto ">
@@ -60,7 +65,42 @@ const NavBar = () => {
           <ul className="menu menu-horizontal px-1">{link}</ul>
         </div>
         <div className="navbar-end">
-          <Link href='/login' className="btn">Login</Link>
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <Image
+                    src={user.image}
+                    alt="logo"
+                    width={150}
+                    height={120}
+                  ></Image>
+                </div>
+              </div>
+              <ul
+                tabIndex="-1"
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              >
+                <li>
+                  <a className="justify-between">{user.name}</a>
+                </li>
+                <li>
+                  <Link href="/profile">Settings</Link>
+                </li>
+                <li onClick={async () => await authClient.signOut()}>
+                  <a>Logout</a>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link href="/login" className="btn">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

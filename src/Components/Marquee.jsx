@@ -5,7 +5,8 @@ const Marque = async () => {
   const res = await fetch("https://tiles-api-server-yz1c.vercel.app/data.json");
   const tilesData = await res.json();
   return (
-    <div className="container mx-auto px-3">
+    <div className="px-3 bg-[#2A2B2A] text-white w-full">
+      <div className="container mx-auto ">
       <Marquee>
         {tilesData.map((res) => (
           <div className="flex items-center my-5" key={res.id}>
@@ -17,6 +18,7 @@ const Marque = async () => {
           </div>
         ))}
       </Marquee>
+    </div>
     </div>
   );
 };
