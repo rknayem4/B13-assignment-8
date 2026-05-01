@@ -4,6 +4,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { authClient } from "../lib/auth-client";
 import { toast } from "react-toastify";
+import { FcGoogle } from "react-icons/fc";
 
 const RegisterPage = () => {
   const {
@@ -28,13 +29,15 @@ const RegisterPage = () => {
     }
     console.log(res, error);
   };
+   const handleGoogleUp = async () => {
+      await authClient.signIn.social({
+        provider: "google",
+      });
+    };
   return (
-    <div className="container mx-auto">
-      <div className=" h-[80vh] flex justify-center items-center ">
-        <form
-          onSubmit={handleSubmit(handleReg)}
-          className="card-body max-w-md border shadow border-gray-100 rounded-2xl"
-        >
+    <div className="container mx-auto h-[80vh] flex justify-center items-center">
+      <div className=" card-body max-w-md border shadow border-gray-100 rounded-2xl ">
+        <form onSubmit={handleSubmit(handleReg)} className="">
           <h2 className="font-bold text-3xl text-center mb-12">
             Recitation Account
           </h2>
@@ -94,7 +97,11 @@ const RegisterPage = () => {
               </Link>
             </p>
           </fieldset>
+          <div className="divider">OR</div>
         </form>
+        <button onClick={handleGoogleUp} className="btn btn-outline w-full rounded-full">
+          <FcGoogle /> Connect with Google
+        </button>
       </div>
     </div>
   );
