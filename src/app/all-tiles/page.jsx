@@ -1,9 +1,9 @@
 import TilesCard from '@/Components/TilesCard';
 import React from 'react';
+import { getTiles } from '../lib/data';
 
 const AllTilesPage =async () => {
-  const res = await fetch('https://tiles-api-server-yz1c.vercel.app/data.json')
-  const tilesData = await res.json()
+  const tilesData = await getTiles()
   return (
     <div className='container mx-auto '>
       <h2 className='text-3xl font-bold my-3'>All Tiles </h2>

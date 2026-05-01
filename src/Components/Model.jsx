@@ -44,7 +44,7 @@ const Model = () => {
                 placeholder="Photo URL"
               />
               <button type="submit" className="btn btn-neutral mt-4">
-                Login
+                Change
               </button>
             </fieldset>
           </form>

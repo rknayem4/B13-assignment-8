@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { authClient } from "../lib/auth-client";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
   const {
@@ -20,6 +21,11 @@ const RegisterPage = () => {
       password,
       callbackURL: "/",
     });
+    {
+      res
+        ? toast.success("Registration successful")
+        : toast.error(`${error.message}`);
+    }
     console.log(res, error);
   };
   return (
@@ -35,32 +41,48 @@ const RegisterPage = () => {
           <fieldset className="fieldset">
             <label className="label">Name</label>
             <input
-              {...register("name")}
+              {...register("name", { required: "Name field is required" })}
               type="Text"
               className="input w-full"
               placeholder="Your full name"
             />
+            {errors.name && (
+              <p className="text-red-500">{errors.name.message}</p>
+            )}
             <label className="label ">Photo URL</label>
             <input
-              {...register("photo")}
+              {...register("photo", {
+                required: "Photo URL field is required",
+              })}
               type="Text"
               className="input w-full"
               placeholder="Photo URL"
             />
+            {errors.photo && (
+              <p className="text-red-500">{errors.photo.message}</p>
+            )}
             <label className="label">Email</label>
             <input
-              {...register("email")}
+              {...register("email", { required: "Email field is required" })}
               type="email"
               className="input w-full"
               placeholder="Email"
             />
+            {errors.email && (
+              <p className="text-red-500">{errors.email.message}</p>
+            )}
             <label className="label">Password</label>
             <input
-              {...register("password")}
+              {...register("password", {
+                required: "Password field is required",
+              })}
               type="password"
               className="input w-full"
               placeholder="Password"
             />
+            {errors.password && (
+              <p className="text-red-500">{errors.password.message}</p>
+            )}
             <button type="submit" className="btn btn-neutral mt-4">
               Login
             </button>

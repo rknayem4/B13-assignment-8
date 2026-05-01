@@ -1,10 +1,10 @@
 import React from "react";
 import TilesCard from "./TilesCard";
 import Link from "next/link";
+import { getTiles } from "@/app/lib/data";
 
 const TopCollection = async () => {
-  const res = await fetch("https://tiles-api-server-yz1c.vercel.app/data.json");
-  const tilesData = await res.json();
+  const tilesData = await getTiles();
   const top = tilesData.slice(6, 12);
   return (
     <div className="text-center">

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { authClient } from '../lib/auth-client';
+import { toast } from 'react-toastify';
 
 const LoginPage = () => {
     const {
@@ -18,6 +19,8 @@ const LoginPage = () => {
           password,
           callbackURL: "/",
         });
+        {res? toast.success('Login successful'): toast.error(`${error.message}`)}
+        // toast.success()
         console.log(res, error);
   }
   return (
