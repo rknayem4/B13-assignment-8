@@ -10,7 +10,6 @@ const RegisterPage = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
   const handleReg = async (data) => {
@@ -29,11 +28,11 @@ const RegisterPage = () => {
     }
     console.log(res, error);
   };
-   const handleGoogleUp = async () => {
-      await authClient.signIn.social({
-        provider: "google",
-      });
-    };
+  const handleGoogleUp = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+    });
+  };
   return (
     <div className="container mx-auto h-[80vh] flex justify-center items-center">
       <div className=" card-body max-w-md border shadow border-gray-100 rounded-2xl ">
@@ -99,7 +98,10 @@ const RegisterPage = () => {
           </fieldset>
           <div className="divider">OR</div>
         </form>
-        <button onClick={handleGoogleUp} className="btn btn-outline w-full rounded-full">
+        <button
+          onClick={handleGoogleUp}
+          className="btn btn-outline w-full rounded-full"
+        >
           <FcGoogle /> Connect with Google
         </button>
       </div>
