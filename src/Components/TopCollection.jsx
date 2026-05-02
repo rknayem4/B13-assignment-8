@@ -5,10 +5,11 @@ import { getTiles } from "@/app/lib/data";
 
 const TopCollection = async () => {
   const tilesData = await getTiles();
-  const top = tilesData.slice(6, 12);
+  const top = tilesData.slice(6, 10);
   return (
     <div className="text-center">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 my-5 p-3">
+      <h2 className="text-3xl font-bold text-center my-5">Papular Items</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 my-5 p-3">
         {top.map((data) => (
           <TilesCard key={data.id} data={data}></TilesCard>
         ))}

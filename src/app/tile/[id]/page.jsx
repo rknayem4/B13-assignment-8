@@ -23,7 +23,7 @@ const TileDetailsPage = async ({ params }) => {
   // console.log(data);
 
   return (
-    <div className="container mx-auto p-5 flex max-md:flex-col gap-3 justify-between items-center">
+    <div className="  container mx-auto p-5 flex max-md:flex-col gap-3 justify-between ">
       <div className="flex-1">
         <Image src={image} alt={tiles} width={700} height={600}></Image>
       </div>

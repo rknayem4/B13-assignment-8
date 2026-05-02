@@ -15,7 +15,7 @@ const NavBar = () => {
         <NavLink href="/all-tiles">All Tiles</NavLink>
       </li>
       <li>
-        <NavLink href="/profile">Profile</NavLink>
+        <NavLink href="/profile"> My Profile</NavLink>
       </li>
     </>
   );

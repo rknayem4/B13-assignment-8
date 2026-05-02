@@ -19,7 +19,7 @@ const RegisterPage = () => {
       image: photo,
       email,
       password,
-      callbackURL: "/",
+      callbackURL: "/login",
     });
     {
       res
@@ -86,7 +86,7 @@ const RegisterPage = () => {
               <p className="text-red-500">{errors.password.message}</p>
             )}
             <button type="submit" className="btn btn-neutral mt-4">
-              Login
+              Registration
             </button>
             <p className="my-3 text-sm text-center">
               I already have an account!
