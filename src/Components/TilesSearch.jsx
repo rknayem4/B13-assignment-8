@@ -17,36 +17,44 @@ const TilesSearch = ({ tilesData, Category }) => {
 
   return (
     <>
-      <div className="flex gap-2 justify-between items-center my-4">
-        <input
-          className="input flex-1 max-w-50"
-          type="text"
-          placeholder="Search..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+      <div className="flex gap-2 m-5 justify-between items-center my-4">
+          <input
+            className="input flex-1 max-w-50"
+            type="text"
+            placeholder="Search..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
 
-        <fieldset className="fieldset flex-1 max-w-50">
-          <select
-            className="select"
-            value={select}
-            onChange={(e) => setSelect(e.target.value)}
-          >
-            <option value="">All</option>
-            {Category.map((cat) => (
-              <option key={cat.id} value={cat.category}>
-                {cat.name}
-              </option>
-            ))}
-          </select>
-        </fieldset>
+
+          <fieldset className="fieldset flex-1 max-w-50">
+            <select
+              className="select"
+              value={select}
+              onChange={(e) => setSelect(e.target.value)}
+            >
+              <option value=""> Select All </option>
+              {Category.map((cat) => (
+                <option key={cat.id} value={cat.category}>
+                  {cat.name}
+                </option>
+              ))}
+            </select>
+          </fieldset>
+
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 my-5 p-3">
-        {filteredTiles.map((data) => (
-          <TilesCard key={data.id} data={data} />
-        ))}
-      </div>
+      {filteredTiles.length == 0 ? (
+        <div className="min-h-[50vh] shadow rounded-2xl m-3 flex justify-center items-center">
+          <h3 className="text-3xl font-bold ">Not found Items</h3>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 my-5 p-3">
+          {filteredTiles.map((data) => (
+            <TilesCard key={data.id} data={data} />
+          ))}
+        </div>
+      )}
     </>
   );
 };

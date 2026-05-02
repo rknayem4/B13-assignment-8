@@ -6,6 +6,8 @@ import { authClient } from "../lib/auth-client";
 import { toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
 
+
+
 const LoginPage = () => {
   const {
     register,

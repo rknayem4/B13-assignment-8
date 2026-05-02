@@ -14,13 +14,13 @@ const ProfilePage = () => {
       {isPending ? (
         <Loading></Loading>
       ) : (
-        <div className="border border-gray-100 shadow p-12 text-center rounded-2xl">
+        <div className="border border-gray-100  shadow p-12 text-center rounded-2xl">
           <Image
             className="rounded-full mx-auto"
             src={user?.image}
             alt="logo"
-            width={250}
-            height={250}
+            width={250}     
+            height={250  }
           ></Image>
           <h2 className="text-3xl font-semibold my-5">{user?.name}</h2>
           <p className="my-4">{user?.email}</p>

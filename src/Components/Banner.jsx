@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import "animate.css";
 
 const images = [
   "/image/cover-1.jpg",
@@ -15,7 +16,7 @@ export default function HeroBanner() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 6000); 
+    }, 6000);
 
     return () => clearInterval(interval);
   }, []);
@@ -33,13 +34,16 @@ export default function HeroBanner() {
       ))}
       <div className="absolute inset-0 bg-black/50"></div>
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
+        <h1 className="text-4xl animate__animated animate__backInDown md:text-6xl font-bold mb-4">
           Discover Your Perfect Aesthetic
         </h1>
-        <p className="mb-6 text-lg md:text-xl">
+        <p className="mb-6 text-lg animate__animated animate__backInLeft md:text-xl">
           Elegant tiles for every corner of your home
         </p>
-        <Link href='/all-tiles' className="bg-[#2A2B2A] hover:bg-[#4d4e4d] px-6 py-3 rounded-full text-lg font-semibold transition">
+        <Link
+          href="/all-tiles"
+          className= "animate__animated animate__backInUp bg-[#2A2B2A] hover:bg-[#4d4e4d] px-6 py-3 rounded-full text-lg font-semibold transition"
+        >
           Browse Now
         </Link>
       </div>
