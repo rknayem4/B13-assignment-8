@@ -5,8 +5,11 @@ import { useForm } from "react-hook-form";
 import { authClient } from "../lib/auth-client";
 import { toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
+import { useRouter } from "next/navigation";
+// import { useRouter } from "next/router";
 
 const RegisterPage = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -22,9 +25,12 @@ const RegisterPage = () => {
       callbackURL: "/login",
     });
     {
-      res
-        ? toast.success("Registration successful")
-        : toast.error(`${error.message}`);
+      if (res) {
+        (toast.success("Registration successful"),
+        router.push("/login"));
+      } else {
+        toast.error(`${error.message}`);
+      }
     }
     console.log(res, error);
   };

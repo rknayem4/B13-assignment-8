@@ -73,12 +73,21 @@ const NavBar = () => {
                 className="btn btn-ghost btn-circle avatar"
               >
                 <div className="w-10 rounded-full">
-                  <Image
-                    src={user.image}
-                    alt="logo"
-                    width={150}
-                    height={120}
-                  ></Image>
+                  {user.image ? (
+                    <Image
+                      src={user?.image}
+                      alt="logo"
+                      width={150}
+                      height={120}
+                    ></Image>
+                  ) : (
+                    <Image
+                      src="/image/user.jpg"
+                      alt="logo"
+                      width={150}
+                      height={120}
+                    ></Image>
+                  )}
                 </div>
               </div>
               <ul

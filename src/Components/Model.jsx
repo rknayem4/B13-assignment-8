@@ -17,7 +17,7 @@ const Model = () => {
     <div>
       <label htmlFor="my_modal_6" className="btn">
         <BiEdit></BiEdit>
-        Change Profile
+        Update Profile
       </label>
 
       {/* Put this part before </body> tag */}
@@ -31,6 +31,7 @@ const Model = () => {
             <fieldset className="fieldset">
               <label className="label">Name</label>
               <input
+                required
                 name="name"
                 type="text"
                 className="input w-full"
@@ -38,13 +39,14 @@ const Model = () => {
               />
               <label className="label">Profile </label>
               <input
+                required
                 name="photo"
                 type="text"
                 className="input w-full"
                 placeholder="Photo URL"
               />
               <button type="submit" className="btn btn-neutral mt-4">
-                Change
+                Update Profile
               </button>
             </fieldset>
           </form>
