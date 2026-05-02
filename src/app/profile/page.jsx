@@ -8,7 +8,7 @@ import Model from "@/Components/Model";
 const ProfilePage = () => {
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
-  console.log(user, isPending);
+  // console.log(user, isPending);
   return (
     <div className="h-[60vh] container mx-auto flex justify-center items-center ">
       {isPending ? (

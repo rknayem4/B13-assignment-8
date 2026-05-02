@@ -4,9 +4,11 @@ import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
 const client = new MongoClient(process.env.TILES_URI);
 const db = client.db();
-
+console.log("URL:", process.env.BETTER_AUTH_URL);
 export const auth = betterAuth({
+  
   database: mongodbAdapter(db, {
+    
     // Optional: if you don't provide a client, database transactions won't be enabled.
     client,
   }),
@@ -19,4 +21,5 @@ export const auth = betterAuth({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET, 
         }, 
     },
+    
 });
