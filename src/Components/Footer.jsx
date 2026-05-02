@@ -1,35 +1,84 @@
 import Link from "next/link";
 import React from "react";
-import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { BiCurrentLocation, BiLocationPlus } from "react-icons/bi";
+import { FaFacebookF, FaGithub, FaLinkedinIn, FaPhoneAlt } from "react-icons/fa";
+import { IoLocationSharp } from "react-icons/io5";
+import { LuOctagon } from "react-icons/lu";
+import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
   return (
     <div>
-      <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
-        <nav className="grid grid-flow-col gap-4">
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Outlet Location</a>
-        </nav>
-        <nav>
-          <div className="grid grid-flow-col gap-4">
-            <Link className="text-2xl" href="https://www.facebook.com/rknayem4">
-              <FaFacebookF />
-            </Link>
-            <Link
-              className="text-2xl"
-              href="https://bd.linkedin.com/in/rknayem"
-            >
-              <FaLinkedinIn />
-            </Link>
-            <Link className="text-2xl" href="https://github.com/rknayem4">
-              <FaGithub />
-            </Link>
+      <footer className=" rounded bg-gray-50 ">
+        <div className=" py-12 container mx-auto my-5 flex justify-evenly items-start">
+          <nav className="flex flex-col gap-5">
+            <h5 className="text-xl font-bold">Company</h5>
+            <a className="link link-hover">About us</a>
+            <a className="link link-hover">Contact</a>
+            <a className="link link-hover">Jobs</a>
+            <a className="link link-hover">Outlet Location</a>
+          </nav>
+          <nav>
+            <div className="flex flex-col gap-6">
+              <h5 className="text-xl font-bold">Social </h5>
+              <Link
+                className=" flex items-center gap-5 bg-gray-100 px-4 py-1 rounded-2xl "
+                href="https://www.facebook.com/rknayem4"
+              >
+                <FaFacebookF />
+                Facebook
+              </Link>
+              <Link
+                className=" flex items-center gap-5 bg-gray-100 px-4 py-1 rounded-2xl "
+                href="https://bd.linkedin.com/in/rknayem"
+              >
+                <FaLinkedinIn />
+                Linkedin
+              </Link>
+              <Link
+                className=" flex items-center gap-5 bg-gray-100 px-4 py-1 rounded-2xl "
+                href="https://github.com/rknayem4"
+              >
+                <FaGithub />
+                GitHub
+              </Link>
+            </div>
+          </nav>
+          <div>
+            <h5 className="text-xl font-bold"> Contact Us</h5>
+            <ul>
+              <li className=" flex items-center gap-3 mt-4">
+                <IoLocationSharp className="text-2xl" />
+                <div>
+                  <span className="font-bold  flex items-center gap-3">
+                    Location{" "}
+                  </span>
+                  <span className="">East Kazipara, Kafrul, Dhaka-1216.</span>
+                </div>
+              </li>
+              <li className=" flex items-center gap-3 mt-4">
+                <FaPhoneAlt  className="text-xl" />
+                <div>
+                  <span className="font-bold flex items-center gap-3">
+                    Location{" "}
+                  </span>
+                  <span className="">+8801 6318 ****</span>
+                </div>
+              </li>
+              <li className=" flex items-center gap-3 mt-4">
+                <MdEmail className="text-2xl" />
+                <div>
+                  <span className="font-bold flex items-center gap-3">
+                    Location{" "}
+                  </span>
+                  <span className="">myemil@gmail.com</span>
+                </div>
+              </li>
+            </ul>
           </div>
-        </nav>
-        <aside>
-          <p>
+        </div>
+        <aside className="bg-[#2A2B2A] py-6 w-full">
+          <p className="text-white text-center">
             Copyright © {new Date().getFullYear()} - All right reserved by RK
             Ceramics Ltd.
           </p>
