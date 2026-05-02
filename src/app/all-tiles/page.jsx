@@ -9,7 +9,7 @@ const AllTilesPage = async () => {
   const Category = await getCategory()
 
   return (
-    <div className="container mx-auto ">
+    <div className="h-screen container mx-auto ">
       <h2 className="text-3xl font-bold text-center my-3">All Tiles </h2>
        <TilesSearch Category={Category} tilesData={tilesData} />
       {/* <div className="">

@@ -1,4 +1,3 @@
-
 import { getTiles } from "@/app/lib/data";
 import Button from "@/Components/Button";
 import Image from "next/image";
@@ -45,7 +44,7 @@ const TileDetailsPage = async ({ params }) => {
             <div className="badge badge-outline badge-warning">Stock Out</div>
           )}
         </span>
-          <Button></Button>
+        <Button></Button>
       </div>
     </div>
   );

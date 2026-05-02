@@ -19,15 +19,14 @@ const TilesSearch = ({ tilesData, Category }) => {
     <>
       <div className="flex gap-2 justify-between items-center my-4">
         <input
-          className="input"
+          className="input flex-1 max-w-50"
           type="text"
           placeholder="Search..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <fieldset className="fieldset">
-          <legend className="fieldset-legend">Select Category</legend>
+        <fieldset className="fieldset flex-1 max-w-50">
           <select
             className="select"
             value={select}

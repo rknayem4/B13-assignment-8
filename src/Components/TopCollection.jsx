@@ -14,7 +14,7 @@ const TopCollection = async () => {
           <TilesCard key={data.id} data={data}></TilesCard>
         ))}
       </div>
-      <Link className="btn w-[30vw] my-3 bg-[#2A2B2A] text-white rounded-full " href="/all-tiles">
+      <Link className="btn  min-w-50 my-3 bg-[#2A2B2A] text-white rounded-full " href="/all-tiles">
         Explore More
       </Link>
     </div>
