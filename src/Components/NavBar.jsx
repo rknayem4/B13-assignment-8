@@ -4,6 +4,7 @@ import NavLink from "./NavLink";
 import Image from "next/image";
 import Link from "next/link";
 import { authClient } from "@/app/lib/auth-client";
+import { IoIosLogOut } from "react-icons/io";
 
 const NavBar = () => {
   const link = (
@@ -66,44 +67,53 @@ const NavBar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <div className="dropdown dropdown-end">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle avatar"
-              >
-                <div className="w-10 rounded-full">
-                  {user.image ? (
-                    <Image
-                      src={user?.image}
-                      alt="logo"
-                      width={150}
-                      height={120}
-                    ></Image>
-                  ) : (
-                    <Image
-                      src="/image/user.jpg"
-                      alt="logo"
-                      width={150}
-                      height={120}
-                    ></Image>
-                  )}
+            <div className="flex gap-2 items-center">
+              <p className="hidden lg:inline"> Hello ! {user.name}</p>
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    {user.image ? (
+                      <Image
+                        src={user?.image}
+                        alt="logo"
+                        width={150}
+                        height={120}
+                      ></Image>
+                    ) : (
+                      <Image
+                        src="/image/user.jpg"
+                        alt="logo"
+                        width={150}
+                        height={120}
+                      ></Image>
+                    )}
+                  </div>
                 </div>
+                <ul
+                  tabIndex="-1"
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                >
+                  <li>
+                    <a className="justify-between">{user.name}</a>
+                  </li>
+                  <li>
+                    <Link href="/profile">Settings</Link>
+                  </li>
+                  <li onClick={async () => await authClient.signOut()}>
+                    <a>Logout</a>
+                  </li>
+                </ul>
               </div>
-              <ul
-                tabIndex="-1"
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              <span
+                onClick={async () => await authClient.signOut()}
+                className="btn btn-ganger lg:flex justify-center items-center rounded-full hidden text-2xl"
               >
-                <li>
-                  <a className="justify-between">{user.name}</a>
-                </li>
-                <li>
-                  <Link href="/profile">Settings</Link>
-                </li>
-                <li onClick={async () => await authClient.signOut()}>
-                  <a>Logout</a>
-                </li>
-              </ul>
+                <IoIosLogOut />
+              </span>
             </div>
           ) : (
             <Link href="/login" className="btn">
