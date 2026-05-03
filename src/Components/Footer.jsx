@@ -10,41 +10,39 @@ const Footer = () => {
   return (
     <div>
       <footer className=" rounded bg-gray-50 ">
-        <div className=" py-12 container mx-auto my-5 flex justify-evenly items-start">
-          <nav className="flex flex-col gap-5">
+        <div className=" py-12 container p-5 my-5  flex max-md:flex-col justify-around items-start mx-auto">
+          <nav className="flex flex-col gap-5 mb-12 ">
             <h5 className="text-xl font-bold">Company</h5>
             <a className="link link-hover">About us</a>
             <a className="link link-hover">Contact</a>
             <a className="link link-hover">Jobs</a>
             <a className="link link-hover">Outlet Location</a>
           </nav>
-          <nav>
-            <div className="flex flex-col gap-6">
+          <nav className="flex flex-col gap-6 mb-12">
               <h5 className="text-xl font-bold">Social </h5>
               <Link
-                className=" flex items-center gap-5 bg-gray-100 px-4 py-1 rounded-2xl "
+                className=" flex items-center gap-5 bg-gray-100 px-4 py-1 rounded-2xl link link-hover "
                 href="https://www.facebook.com/rknayem4"
               >
                 <FaFacebookF />
                 Facebook
               </Link>
               <Link
-                className=" flex items-center gap-5 bg-gray-100 px-4 py-1 rounded-2xl "
+                className=" flex items-center gap-5 bg-gray-100 px-4 py-1 rounded-2xl link link-hover"
                 href="https://bd.linkedin.com/in/rknayem"
               >
                 <FaLinkedinIn />
                 Linkedin
               </Link>
               <Link
-                className=" flex items-center gap-5 bg-gray-100 px-4 py-1 rounded-2xl "
+                className=" flex items-center gap-5 bg-gray-100 px-4 py-1 rounded-2xl link link-hover"
                 href="https://github.com/rknayem4"
               >
                 <FaGithub />
                 GitHub
               </Link>
-            </div>
           </nav>
-          <div>
+          <div className="">
             <h5 className="text-xl font-bold"> Contact Us</h5>
             <ul>
               <li className=" flex items-center gap-3 mt-4">
